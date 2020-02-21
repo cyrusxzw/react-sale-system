@@ -31,7 +31,7 @@ export default class SneakerTable extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://127.0.0.1:3000/sneakers").then((res) => {
+        fetch("https://sneaker-system.herokuapp.com/sneakers").then((res) => {
             return res.json();
         }).then((sneakers) => {
 
@@ -94,6 +94,7 @@ export default class SneakerTable extends React.Component {
                           }
                         }
 
+                        console.log(newData);
                         data.push(newData);
                         this.setState({ data }, () => resolve());
                       }
