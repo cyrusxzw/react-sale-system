@@ -83,7 +83,7 @@ export default class SneakerTable extends React.Component {
                       ...newData
                     }
 
-                    axios.post("http://127.0.0.1:3000/sneakers", sentData).then(
+                    axios.post("https://sneaker-system.herokuapp.com/sneakers", sentData).then(
                       () => {
                         const { sold_price, buy_price } = newData;
                         const profit = sold_price - buy_price;
@@ -114,7 +114,7 @@ export default class SneakerTable extends React.Component {
                     const { id } = oldData;
                     delete newData["profit"];
                     console.log(newData);
-                    axios.patch(`http://127.0.0.1:3000/sneakers/${id}`, newData).then(() => {
+                    axios.patch(`https://sneaker-system.herokuapp.com/sneakers/${id}`, newData).then(() => {
                       this.setState({ data }, () => resolve());
                     }).catch(() => {
                       alert("出错啦！快去找许增威！");
@@ -131,7 +131,7 @@ export default class SneakerTable extends React.Component {
                     const index = data.indexOf(oldData);
                     data.splice(index, 1);
                     const { id } = oldData;
-                    axios.delete(`http://127.0.0.1:3000/sneakers/${id}`).then(
+                    axios.delete(`https://sneaker-system.herokuapp.com/sneakers/${id}`).then(
                       () => {
                         this.setState({ data }, () => resolve());
                       }
