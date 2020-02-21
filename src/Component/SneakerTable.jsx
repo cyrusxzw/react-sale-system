@@ -18,7 +18,7 @@ export default class SneakerTable extends React.Component {
               />
             )
           },
-          { title: '尺码', field: 'size', type: 'numeric' },
+          { title: '尺码', field: 'size' },
           { title: '买入时间', field: 'buy_time', type: 'date' },
           { title: '卖出时间', field: 'sold_time', type: 'date' },
           { title: '买入价', field: 'buy_price', type: 'numeric' },
