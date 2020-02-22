@@ -45,25 +45,27 @@ export default class Report extends React.Component {
             }
         })
 
-        var temp = {};
-        for(let i in tempItems) {
-             let key = tempItems[i].tempDate;
-             if(temp[key]) {
-                 temp[key].tempDate = tempItems[i].tempDate;
-                 temp[key].利润 += tempItems[i].利润;
-                 
-             } else {
-                 temp[key] = {};
-                 temp[key].tempDate = tempItems[i].tempDate;
-                 temp[key].利润 = tempItems[i].利润;
-             }
-         }
-         let reportData = [];
-         for(let k in temp){
-            reportData.push(temp[k])
+        let temp = {};
+        tempItems.forEach((tempItem) => {
+            const { tempDate, 利润 } = tempItem;
+            const key = tempDate;
+            if(temp[key]) {
+                temp[key].tempDate = tempDate;
+                temp[key].利润 += 利润;
+            }
+            else {
+                temp[key] = {};
+                temp[key].tempDate = tempDate;
+                temp[key].利润 = 利润;
+            }
+        })
+ 
+        const reportData = [];
+        for(let i in temp){
+            reportData.push(temp[i]);
          }
 
-         console.log(reportData);
+         //console.log(reportData);
 
         return (
             <div>

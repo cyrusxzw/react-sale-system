@@ -114,7 +114,22 @@ export default class SneakerTable extends React.Component {
                     data[index] = newData;
                     const { id } = oldData;
                     delete newData["profit"];
-                    console.log(newData);
+                    let { buy_time, sold_time } = newData;
+                    if(buy_time == null) {
+                      buy_time = "";
+                      newData = {
+                         ...newData,
+                         buy_time
+                      }
+                    }
+                    if(sold_time == null) {
+                      sold_time = "";
+                      newData = {
+                         ...newData,
+                         sold_time
+                      }
+                    }
+                    //console.log(buy_time);
                     axios.patch(`https://sneaker-system.herokuapp.com/sneakers/${id}`, newData).then(() => {
                       this.setState({ data }, () => resolve());
                     }).catch(() => {
