@@ -109,7 +109,7 @@ export default class SneakerTable extends React.Component {
               new Promise((resolve, reject) => {
                 setTimeout(() => {
                   {
-                    const data = Array.from(this.state.data);
+                    let data = Array.from(this.state.data);
                     const index = data.indexOf(oldData);
                     data[index] = newData;
                     const { id } = oldData;
@@ -131,6 +131,24 @@ export default class SneakerTable extends React.Component {
                     }
                     //console.log(buy_time);
                     axios.patch(`https://sneaker-system.herokuapp.com/sneakers/${id}`, newData).then(() => {
+                      const { buy_price, sold_price } = newData;
+                      const newProfit = sold_price - buy_price; 
+                      newData = {
+                        ...newData,
+                        "profit": newProfit
+                      }
+
+                      const { id: newDataId } = newData;
+                      data = data.map((sneaker) => {
+                      const { id } = sneaker;
+                      if(id == newDataId) {
+                        return sneaker = newData;
+                      }
+                      else {
+                        return sneaker;
+                      }
+                    })
+                      //console.log(dataForProfitUsing);
                       this.setState({ data }, () => resolve());
                     }).catch(() => {
                       alert("出错啦！快去找许增威！");
