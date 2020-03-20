@@ -61,6 +61,9 @@ export default class SneakerTable extends React.Component {
       return (
         <MaterialTable
           title="统计表"
+          options={{
+            exportButton: true
+          }}
           columns={this.state.columns}
           data={this.state.data}
           editable={{
