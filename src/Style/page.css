@@ -55,6 +55,7 @@
     padding: 1rem;
     transition: all 0.3s ease;
     cursor: pointer;
+    outline: none;
 }
 
 .check-amount:hover {
