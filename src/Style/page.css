@@ -36,3 +36,41 @@
 .customclass:hover {
     background-color: #1890ff!important;
 }
+
+.recharts-wrapper {
+    margin: 0 auto;
+}
+
+.report-container {
+    text-align: center;
+}
+
+.check-amount {
+    margin: 3rem auto;
+    color: #ff4d4f;
+    background-color: #fff;
+    border-color: #ff4d4f;
+    letter-spacing: 0.3rem;
+    font-size: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.check-amount:hover {
+    color: #fff;
+    background-color: #ff4d4f;
+    border-color: #ff4d4f;
+}
+
+.hideChart {
+    display: none;
+}
+
+.amount-container {
+    display: none;
+}
+
+.showAmount {
+    display: block;
+}
