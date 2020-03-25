@@ -121,14 +121,14 @@ export default class SneakerTable extends React.Component {
                   const { id } = oldData;
                   delete newData["profit"];
                   let { buy_time, sold_time } = newData;
-                  if (buy_time == null) {
+                  if (buy_time == null || buy_time == "") {
                     buy_time = "";
                     newData = {
                       ...newData,
                       buy_time
                     };
                   }
-                  if (sold_time == null) {
+                  if (sold_time == null || sold_time == "") {
                     sold_time = "";
                     newData = {
                       ...newData,
