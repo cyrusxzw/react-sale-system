@@ -55,7 +55,7 @@ export default class Amount extends React.Component {
         })
         const totalSoldAmount = filtered.length;
         const detail = {
-          "month" : e[index].tempBuyDate,
+          "month" : e[0].tempBuyDate,
           "买入": totalPurchaseAmount,
           "卖出": totalSoldAmount
         }

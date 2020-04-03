@@ -47,6 +47,7 @@ export default class Report extends React.Component {
 
   render() {
     const { data: sneakers } = this.state;
+     console.log(sneakers);
     let total = "";
     sneakers.forEach(({ sold_price, buy_price }) => {
       const profit = sold_price - buy_price;

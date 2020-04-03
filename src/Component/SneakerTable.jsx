@@ -91,6 +91,7 @@ export default class SneakerTable extends React.Component {
                       sentData
                     )
                     .then(() => {
+                      //console.log(sentData);
                       const { sold_price, buy_price } = newData;
                       const profit = sold_price - buy_price;
                       if (sold_price && buy_price) {
