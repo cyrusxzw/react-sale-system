@@ -46,8 +46,8 @@ export default class Report extends React.Component {
   }
 
   render() {
-    const { data: sneakers } = this.state;
-     console.log(sneakers);
+    let { data: sneakers } = this.state;
+    sneakers = sneakers.filter(({id}) => id !== "")
     let total = "";
     sneakers.forEach(({ sold_price, buy_price }) => {
       const profit = sold_price - buy_price;
@@ -106,7 +106,7 @@ export default class Report extends React.Component {
         </button>
         <div
           className={`amount-container ${this.state.show ? "showAmount" : ""}`}>
-          <Amount data={this.state.data}></Amount>
+          <Amount data={sneakers}></Amount>
         </div>
       </div>
     );

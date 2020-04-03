@@ -36,7 +36,7 @@ export default class SneakerTable extends React.Component {
         return res.json();
       })
       .then(sneakers => {
-        const newSneakers = sneakers.map(sneaker => {
+        let newSneakers = sneakers.map(sneaker => {
           const { buy_price, sold_price } = sneaker;
           const profit = sold_price - buy_price;
           if (buy_price) {
@@ -49,7 +49,8 @@ export default class SneakerTable extends React.Component {
           }
         });
 
-        //console.log(newSneakers);
+        console.log(newSneakers);
+        newSneakers = newSneakers.filter(({id}) => id !== "");
         this.setState({
           data: newSneakers
         });
@@ -91,7 +92,7 @@ export default class SneakerTable extends React.Component {
                       sentData
                     )
                     .then(() => {
-                      //console.log(sentData);
+                      console.log(sentData);
                       const { sold_price, buy_price } = newData;
                       const profit = sold_price - buy_price;
                       if (sold_price && buy_price) {
