@@ -64,20 +64,27 @@ export default class SneakerTable extends React.Component {
 
   onMonthClick(month) {
     const { data, filteredData } = this.state;
-    const sameMonthData = data.filter(
-      ({ buy_time }) => parseInt(buy_time.split("-")[1]) === month + 1
-    );
-    //console.log(sameMonthData);
-    if (sameMonthData.length == 0) {
-      notification.warning({
-        message: "错误",
-        description: "想啥呢？这个月没买鞋！",
+    if(month === 'clear') {
+      this.setState({
+        filteredData: data,
       });
     }
-    this.setState({
-      filteredData: sameMonthData,
-      clicked: true
-    });
+    else {
+      const sameMonthData = data.filter(
+        ({ buy_time }) => parseInt(buy_time.split("-")[1]) === month + 1
+      );
+      //console.log(sameMonthData);
+      if (sameMonthData.length == 0) {
+        notification.warning({
+          message: "错误",
+          description: "想啥呢？这个月没买鞋！",
+        });
+      }
+      this.setState({
+        filteredData: sameMonthData,
+        clicked: true
+      });
+    }
   }
 
   render() {

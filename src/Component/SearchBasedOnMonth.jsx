@@ -38,6 +38,15 @@ export default class SearchBasedOnMonth extends React.Component {
               </Col>
             );
           })}
+          <Col span={24}>
+          <br/>
+            <Button type="primary"
+              onClick={() => {
+                onMonthClick("clear");
+              }}>
+              查看全部
+            </Button>
+          </Col>
         </Row>
       </Card>
     );
