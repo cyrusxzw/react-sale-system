@@ -3,6 +3,7 @@ import MaterialTable from "material-table";
 import axios from "axios";
 import SearchBasedOnMonth from "../Component/SearchBasedOnMonth";
 import { notification } from "antd";
+import Weather from "../Unilies/Weather";
 
 export default class SneakerTable extends React.Component {
   constructor(props) {
@@ -90,6 +91,7 @@ export default class SneakerTable extends React.Component {
   render() {
     return (
       <div>
+        <Weather></Weather>
         <SearchBasedOnMonth
           onMonthClick={this.onMonthClick.bind(this)}></SearchBasedOnMonth>
         <MaterialTable
